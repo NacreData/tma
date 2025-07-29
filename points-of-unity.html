@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>Triangle Mutual Aid</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="./css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link href="./bootstrap-icons-1.5.0/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Favicons -->
+    <!-- 
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+ -->
+    <meta name="theme-color" content="#7952b3" />
+
+    <style>
+      /* Show it is fixed to the top */
+      body {
+        min-height: 75rem;
+        padding-top: 4.5rem;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+
+      .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #fff;
+        border-radius: 0.75rem;
+      }
+
+      .icon-link {
+        display: inline-flex;
+        align-items: center;
+      }
+      .icon-link > .bi {
+        margin-top: 0.125rem;
+        margin-left: 0.125rem;
+        transition: transform 0.25s ease-in-out;
+        fill: currentColor;
+      }
+      .icon-link:hover > .bi {
+        transform: translate(0.25rem);
+      }
+
+      .icon-square {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        border-radius: 0.75rem;
+      }
+
+      .rounded-4 {
+        border-radius: 0.5rem;
+      }
+      .rounded-5 {
+        border-radius: 1rem;
+      }
+
+      .text-shadow-1 {
+        text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+      }
+      .text-shadow-2 {
+        text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+      }
+      .text-shadow-3 {
+        text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+      }
+
+      .card-cover {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+      
+      h3 {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Triangle Mutual Aid</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./">Chantal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./helene.html">Helene</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./debbie.html">Debby</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./housing.html">Housing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./other.html">Other</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./photos.html">Photos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./blog.html"
+                >Blog</a
+              >
+            </li>
+          </ul>
+
+          <div
+            class="d-flex"
+            style="color: blue; font-size: 1.5rem; padding-right: 25px"
+          >
+            <a href="https://www.facebook.com/TriangleMutualAid" target="_blank"
+              ><i class="bi bi-facebook"></i
+            ></a>
+          </div>
+          <!-- 
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+ -->
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="bg-light p-5 rounded">
+            <h1>Points of Unity</h1>
+            <p>
+              This is a draft working document, not a final word. It is meant to serve 
+              as a common "floor" from which we all agree to build the needed details and 
+              systems to bring Mutual Aid to life in the Triangle. 
+            </p>
+            <p>
+              More detailed topics are often explored on  
+              <a
+                href="https://www.patreon.com/trianglemutualaid"
+                target="_blank"
+                >our Patreon site</a
+              >
+              in our meetings and working groups. 
+            </p>
+          </div>
+
+          <h3>1. Housing, Food, and Care Are Non-Negotiable</h3>
+          
+          <p>
+          We believe survival needs—shelter, nourishment, healthcare, and connection—are
+          not privileges to be earned, but rights to be honored. We reject systems that
+          tie basic human needs to employment, citizenship, paperwork, sobriety,
+          compliance, or worthiness narratives.
+          </p>
+          
+          <h3>2. Solidarity Over Charity</h3>
+          
+          <p>
+          We act with, not for. Our work is mutual and reciprocal, not transactional. We
+          don't serve, we share. We trust that everyone has something to give and
+          something they need. Our organizing rejects saviorism and centers dignity,
+          autonomy, and collective liberation.
+          </p>
+          
+
+          <h3>3. No One is Disposable</h3>
+          
+          <p>
+          We organize from a deep belief that all people are worthy of care, regardless of
+          background, past harm, ability, documentation status, mental health, housing
+          situation, or other factors. We meet people where they are, not where the system
+          says they should be.
+          </p>
+
+          
+          <h3>4. Disasters Don't Break the System; They Reveal It.</h3>
+          
+          <p>
+          Storms, floods, pandemics, and displacement don&rsquo;t create injustice, they expose
+          it. We don&rsquo;t wait for the state to solve what it helped cause. We respond from
+          the ground up, guided by care, community knowledge, relationships, and
+          resistance.
+          </p>
+
+
+          <h3>5. Decentralization Is a Strength</h3>
+          
+          <p>
+          We trust horizontal, consent-based structures. Leadership is shared, emergent,
+          and accountable. We build trust through transparency, aligned values, and
+          action, not titles. Our strength is in networks, not bosses.
+          </p>
+
+          
+          <h3>6. Our Safety Is Interconnected</h3>
+          
+          <p>
+          Our safety is something we build together. It doesn&rsquo;t come from control, but
+          from reciprocal care. Our safety is intertwined with yours. We
+          have a duty to get through this together. We protect each other not by closing
+          off, but by opening up&mdash;with boundaries, with trust, and with the kind of
+          expanded generosity and mutualism that makes all of us more secure.
+          </p>
+
+          
+          <h3>7. Grief, Rage, and Joy Belong Here</h3>
+          
+          <p>
+          Mutual aid is not just logistics; it's human. It's emotional labor,
+          spiritual work, and political defiance. Sometimes it’s spreadsheets and trash
+          bags. Sometimes it’s crying in the kitchen. It’s all part of it. We make space
+          for the full range of human feeling in our work.
+          </p>
+
+          
+          <h3>8. We Organize to End the Conditions Charity Responds to&mdash;and Depends on</h3>
+          
+          <p>
+          We respond to emergencies, but we are not here to make injustice more
+          comfortable. Our goal is to uproot the systems that create the emergencies. We
+          fight for a future where mutual care is not an exception, but the norm.
+          </p>
+
+          
+          <h3>9. Liberation is Local, Collective, and In Motion</h3>
+          
+          <p>
+          Our work begins in the Triangle, with the neighbors, neighborhoods, and land we
+          share. But our vision is global. We show up how we can, where we are, connecting
+          neighbor to neighbor, block to block, and struggle to struggle.
+          </p>
+          
+        
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted"
+          >Contact Us:
+          <a href="mailto:info@trianglemutualaid.org"
+            >info@TriangleMutualAid.org</a
+          >
+          or through
+          <a href="https://m.me/TriangleMutualAid" target="_blank"
+            >Facebook Messenger</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <script
+      src="./js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PWBDD3C64N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-PWBDD3C64N");
+    </script>
+  </body>
+</html>
